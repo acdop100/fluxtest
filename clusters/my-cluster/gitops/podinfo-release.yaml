@@ -19,22 +19,39 @@ spec:
       install: false
     gitlab:
       gitlab-shell:
+        maxReplicas: 1
+        minReplicas: 1
         service:
           nodePort: 32022
           type: NodePort
+      sidekiq:
+        maxReplicas: 1
+        minReplicas: 1
+      webservice:
+        maxReplicas: 1
+        minReplicas: 1
     gitlab-runner:
-      certsSecretName: gitlab-wildcard-tls-chain
+      install: false
     global:
       hosts:
-        domain: 192.168.99.100.nip.io
-        externalIP: 192.168.99.100
+        domain: 192.168.59.163.nip.io
+        externalIP: 192.168.59.163
       ingress:
         class: nginx
         configureCertmanager: false
+      rails:
+        bootsnap:
+          enabled: false
       shell:
         port: 32022
     nginx-ingress:
       enabled: false
+    prometheus:
+      install: false
+    registry:
+      hpa:
+        maxReplicas: 1
+        minReplicas: 1
   valuesFrom:
   - kind: Secret
     name: gitlab-gitlab-license
