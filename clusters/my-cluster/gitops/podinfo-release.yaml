@@ -38,4 +38,5 @@ spec:
   valuesFrom:
   - kind: Secret
     name: gitlab-gitlab-license
+    valuesKey: license
 
