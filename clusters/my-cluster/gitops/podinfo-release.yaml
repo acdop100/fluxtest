@@ -25,6 +25,9 @@ spec:
     gitlab-runner:
       certsSecretName: gitlab-wildcard-tls-chain
     global:
+      gitlab:
+        license:
+          secret: gitlab-gitlab-license
       hosts:
         domain: 192.168.99.100.nip.io
         externalIP: 192.168.99.100
